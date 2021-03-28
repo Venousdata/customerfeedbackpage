@@ -1,0 +1,5 @@
+INSERT INTO reviews (name, email, rating, comment, date, productid) VALUES ('James H', 'jphowell@live.com', 3, 'I thought the back scratcher did not hit the spot, but it was nice!', '2021-03-28', 1);
+INSERT INTO reviews (name, email, rating, comment, date, productid) VALUES ('Barry M', 'test@test.test', 5, 'I love this iPhone!!', '2021-03-25', 2);
+INSERT INTO reviews (name, email, rating, comment, date, productid) VALUES ('Josephine', 'testemail@email.com', 5, 'This is by far the most beautiful car ever.', '2021-03-20', 3);
+INSERT INTO reviews (name, email, rating, comment, date, productid) VALUES ('Joel', 'tester@email.com', 5, 'This is by far the best iPhone', '2021-03-21', 2);
+INSERT INTO reviews (name, email, rating, comment, date, productid) VALUES ('Shyla', 'shyla@email.com', 3, 'This car looks even better in person.', '2021-03-23', 3);

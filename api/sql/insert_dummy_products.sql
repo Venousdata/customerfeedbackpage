@@ -1,0 +1,3 @@
+INSERT INTO products (name, description, image_src) VALUES ('Back Scratcher', 'An extended hand to help you hit that sweet spot on your back', 'https://m.media-amazon.com/images/I/61T+sDLDoGL._AC_SX355_.jpg');
+INSERT INTO products (name, description, image_src) VALUES ('iPhone 12 Pro Max', 'The latest iPhone', 'https://shop.ee.co.uk/content/dam/everything-everywhere/images/SHOP/affiliates/apple/iPhone_12_Pro_Max_PacificBlue_800x800.png');
+INSERT INTO products (name, description, image_src) VALUES ('Mercedes SLK GTR', 'The Unicorn.', 'https://kidston.com/views/themes/uploads/2020/06/PB_20200528_4101.jpg');
