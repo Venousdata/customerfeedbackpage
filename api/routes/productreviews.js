@@ -3,17 +3,24 @@ import { query } from "../db/index.js";
 
 const router = new Router();
 
-router.get("/reviews/:id", async (req, res) => {
+// export to be mounted
+export default router;
+
+router.get("/all", async (req, res) => {
+  const sqlText = "SELECT * FROM reviews";
+  const { rows } = await query(sqlText);
+  res.send(rows);
+});
+
+router.get("/product/:id", async (req, res) => {
   const id = req.params.id;
-
   if (!id) throw new Error("ID not present");
-
   const sqlText = `SELECT * FROM reviews WHERE productid = ${id}`;
   const { rows } = await query(sqlText);
   res.send(rows);
 });
 
-router.post("/reviews/:id", async (req, res) => {
+router.post("/product/:id", async (req, res) => {
   const id = req.params.id;
   if (!id) throw new Error("ID not present");
 
@@ -27,6 +34,3 @@ router.post("/reviews/:id", async (req, res) => {
   const { rows } = await query(sqlText);
   res.send(rows);
 });
-
-// export to be mounted
-export default router;
