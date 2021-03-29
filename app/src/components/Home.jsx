@@ -1,6 +1,7 @@
 import { makeStyles } from "@material-ui/core/styles";
 import { useState, useEffect } from "react";
 import { get } from "../api/api";
+import Products from "./Products";
 
 const useStyles = makeStyles((theme) => ({
   home: {
@@ -14,15 +15,15 @@ const Home = () => {
 
   useEffect(() => {
     get("products/all")
-      .then((res) => console.log("==========res==========", res))
+      .then((data) => setProducts(data))
       .catch((err) => console.log(err));
   }, []);
-  console.log("==========products==========", products);
+
   return (
     <div className={classes.home}>
       <h2>Home</h2>
       <p>Check out some of our products!</p>
-      {/* Products */}
+      <Products products={products} />
     </div>
   );
 };
