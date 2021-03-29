@@ -3,9 +3,6 @@ import { query } from "../db/index.js";
 
 const router = new Router();
 
-// export to be mounted
-export default router;
-
 router.get("/:id", async (req, res) => {
   const id = req.params.id;
   if (!id) throw new Error("ID not present");
@@ -13,3 +10,6 @@ router.get("/:id", async (req, res) => {
   const { rows } = await query(sqlText);
   res.send(rows);
 });
+
+// export to be mounted
+export default router;

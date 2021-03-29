@@ -3,9 +3,6 @@ import { query } from "../db/index.js";
 
 const router = new Router();
 
-// export to be mounted
-export default router;
-
 router.get("/all", async (req, res) => {
   const sqlText = "SELECT * FROM reviews";
   const { rows } = await query(sqlText);
@@ -34,3 +31,6 @@ router.post("/product/:id", async (req, res) => {
   const { rows } = await query(sqlText);
   res.send(rows);
 });
+
+// export to be mounted
+export default router;
