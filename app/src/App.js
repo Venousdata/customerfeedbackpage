@@ -1,5 +1,6 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { makeStyles, Paper } from "@material-ui/core";
+import Home from "./components/Home";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -8,6 +9,7 @@ const useStyles = makeStyles((theme) => ({
   pagecontainer: {
     position: "relative",
     minHeight: "100vh",
+    textAlign: "center",
   },
   contentwrap: {
     padding: "1rem",
@@ -21,9 +23,10 @@ const App = () => {
       <BrowserRouter>
         <div className={classes.contentwrap}>
           <Paper elevation={2} className={classes.paper}>
-          <Switch>
+            <h1>Customer Feedback Page</h1>
+            <Switch>
               <main>
-                <Route path="/" exact />
+                <Route path="/" exact component={Home} />
               </main>
             </Switch>
           </Paper>
