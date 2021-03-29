@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core/styles";
+import { CircularProgress, makeStyles } from "@material-ui/core";
 import { useState, useEffect } from "react";
 import { get } from "../api/api";
 import Products from "./Products";
@@ -23,7 +23,7 @@ const Home = () => {
     <div className={classes.home}>
       <h2>Home</h2>
       <p>Check out some of our products!</p>
-      <Products products={products} />
+      {products ? <Products products={products} /> : <CircularProgress />}
     </div>
   );
 };

@@ -6,8 +6,8 @@ import {
   CardMedia,
   CardContent,
   Typography,
-  CircularProgress,
 } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   gridcontainer: {
@@ -24,50 +24,46 @@ const useStyles = makeStyles((theme) => ({
 
 const Products = ({ products }) => {
   const classes = useStyles();
-  console.log("==========products==========", products);
+  const history = useHistory();
 
-  const test = (product) => {
-    console.log("TESTING", product);
+  const handleClick = ({ id }) => {
+    history.push(`product/${id}`);
   };
 
   return (
     <>
-      {products && products.length ? (
-        <Grid
-          container
-          justify="center"
-          spacing={3}
-          className={classes.gridcontainer}
-        >
-          {products.map((product) => (
-            <Grid key={product.id} item>
-              <Card className={classes.card}>
-                <CardActionArea onClick={() => test(product)}>
-                  <CardMedia
-                    className={classes.media}
-                    image={product.image_src}
-                    title={product.name}
-                  />
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      {product.name}
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      color="textSecondary"
-                      component="p"
-                    >
-                      {product.description}
-                    </Typography>
-                  </CardContent>
-                </CardActionArea>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
-      ) : (
-        <CircularProgress />
-      )}
+      <Grid
+        container
+        justify="center"
+        spacing={3}
+        className={classes.gridcontainer}
+      >
+        {products.map((product) => (
+          <Grid key={product.id} item>
+            <Card className={classes.card}>
+              <CardActionArea onClick={() => handleClick(product)}>
+                <CardMedia
+                  className={classes.media}
+                  image={product.image_src}
+                  title={product.name}
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    {product.name}
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    color="textSecondary"
+                    component="p"
+                  >
+                    {product.description}
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
     </>
   );
 };

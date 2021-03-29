@@ -1,6 +1,7 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { makeStyles, Paper } from "@material-ui/core";
 import Home from "./components/Home";
+import Product from "./components/Product";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -18,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
 
 const App = () => {
   const classes = useStyles();
+
   return (
     <div className={classes.pagecontainer}>
       <BrowserRouter>
@@ -27,6 +29,7 @@ const App = () => {
             <Switch>
               <main>
                 <Route path="/" exact component={Home} />
+                <Route path="/product/:id" exact component={Product} />
               </main>
             </Switch>
           </Paper>
