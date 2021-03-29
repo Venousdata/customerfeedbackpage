@@ -8,7 +8,7 @@ router.get("/:id", async (req, res) => {
   if (!id) throw new Error("ID not present");
   const sqlText = `SELECT * FROM products WHERE id = ${id}`;
   const { rows } = await query(sqlText);
-  res.send(rows);
+  res.send(rows[0]);
 });
 
 // export to be mounted
