@@ -13,10 +13,7 @@ import {
 import { useState } from "react";
 import { validateProductReviewForm } from "../helpers/helpers";
 
-const useStyles = makeStyles((theme) => ({}));
-
 const AddReview = ({ product, open, handleClose, handleSubmit }) => {
-  const classes = useStyles();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [rating, setRating] = useState(0);
