@@ -1,7 +1,6 @@
 // this component is just a form allowing users to write and submit reviews on products
 
 import {
-  makeStyles,
   Dialog,
   Button,
   DialogTitle,

@@ -97,7 +97,11 @@ const Product = () => {
         <>
           <h2>{product.name}</h2>
           <Paper variant="outlined" className={classes.paper}>
-            <img className={classes.image} src={product.image_src} />
+            <img
+              className={classes.image}
+              src={product.image_src}
+              alt={product.name}
+            />
             <ReviewChart reviews={reviews} />
           </Paper>
           <p>{product.description}</p>
