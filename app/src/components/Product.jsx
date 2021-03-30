@@ -1,8 +1,9 @@
 import { makeStyles, Paper, Button, CircularProgress } from "@material-ui/core";
 import { useState, useEffect } from "react";
-import { get } from "../api/api";
+import { get, post } from "../api/api";
 import { useHistory } from "react-router-dom";
 import DataTable from "./DataTable";
+import AddReview from "./AddReview";
 
 const useStyles = makeStyles((theme) => ({
   product: {
@@ -52,6 +53,19 @@ const Product = () => {
     setReviewModalOpen(true);
   };
 
+  const closeReviewModal = () => {
+    setReviewModalOpen(false);
+  };
+
+  const handleSubmit = async (form) => {
+    const id = window.location.pathname.split("/").pop();
+    const reviews = await post(`productreviews/product/${id}`, form);
+    if (reviews) {
+      setReviews(reviews);
+    }
+    setReviewModalOpen(false);
+  };
+
   return (
     <div className={classes.product}>
       <div className={classes.buttonsContainer}>
@@ -72,6 +86,12 @@ const Product = () => {
           <h2>Reviews</h2>
           <DataTable reviews={reviews} />
           {/* create review component (modal popup) */}
+          <AddReview
+            product={product}
+            open={reviewModalOpen}
+            handleClose={closeReviewModal}
+            handleSubmit={handleSubmit}
+          />
         </>
       ) : (
         <CircularProgress />
