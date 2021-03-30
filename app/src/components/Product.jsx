@@ -2,6 +2,7 @@ import { makeStyles, Paper, Button, CircularProgress } from "@material-ui/core";
 import { useState, useEffect } from "react";
 import { get } from "../api/api";
 import { useHistory } from "react-router-dom";
+import DataTable from "./DataTable";
 
 const useStyles = makeStyles((theme) => ({
   product: {
@@ -14,12 +15,14 @@ const useStyles = makeStyles((theme) => ({
   button: {
     float: "left",
     background: "lightgray",
+    margin: "2px",
   },
 }));
 
 const Product = () => {
   const [product, setProduct] = useState();
   const [reviews, setReviews] = useState([]);
+  const [reviewModalOpen, setReviewModalOpen] = useState(false);
   const classes = useStyles();
   const history = useHistory();
 
@@ -41,10 +44,17 @@ const Product = () => {
     history.push("/");
   };
 
+  const openReviewModal = () => {
+    setReviewModalOpen(true);
+  };
+
   return (
     <div className={classes.product}>
       <Button className={classes.button} onClick={() => handleClick()}>
         Home
+      </Button>
+      <Button className={classes.button} onClick={() => openReviewModal()}>
+        Add Review
       </Button>
       {product && reviews && reviews.length ? (
         <>
@@ -54,7 +64,7 @@ const Product = () => {
             <p>{product.description}</p>
           </Paper>
           <h2>Reviews</h2>
-          {/* enhanced table with reviews */}
+          <DataTable reviews={reviews} />
           {/* add review button */}
           {/* create review component (modal popup) */}
         </>
