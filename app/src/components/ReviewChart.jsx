@@ -27,7 +27,7 @@ const ReviewChart = ({ reviews }) => {
       const newChartInstance = new Chart(chartContainer.current, chartConfig);
       setChartInstance(newChartInstance);
     }
-  }, [chartContainer]);
+  }, [chartContainer, reviews]);
 
   return (
     <div>
