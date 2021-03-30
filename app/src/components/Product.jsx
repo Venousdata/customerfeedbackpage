@@ -17,6 +17,10 @@ const useStyles = makeStyles((theme) => ({
     background: "lightgray",
     margin: "2px",
   },
+  buttonsContainer: {
+    display: "flex",
+    position: "absolute",
+  },
 }));
 
 const Product = () => {
@@ -50,12 +54,14 @@ const Product = () => {
 
   return (
     <div className={classes.product}>
-      <Button className={classes.button} onClick={() => handleClick()}>
-        Home
-      </Button>
-      <Button className={classes.button} onClick={() => openReviewModal()}>
-        Add Review
-      </Button>
+      <div className={classes.buttonsContainer}>
+        <Button className={classes.button} onClick={() => handleClick()}>
+          Home
+        </Button>
+        <Button className={classes.button} onClick={() => openReviewModal()}>
+          Add Review
+        </Button>
+      </div>
       {product && reviews && reviews.length ? (
         <>
           <h2>{product.name}</h2>
