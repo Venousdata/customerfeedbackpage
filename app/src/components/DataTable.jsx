@@ -1,3 +1,6 @@
+// this component just displays the reviews in a table format,
+// allowing for sorting on columns, filtering, etc.
+
 import { makeStyles } from "@material-ui/core";
 import { DataGrid } from "@material-ui/data-grid";
 import { getColumns, getRows } from "../helpers/helpers";

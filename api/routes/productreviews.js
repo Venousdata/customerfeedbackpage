@@ -5,12 +5,15 @@ import dayjs from "dayjs";
 
 const router = new Router();
 
+// gets all reviews. this route is never called,
+// but if i ever needed to get all reviews i can just send a get request to this endpoint
 router.get("/all", async (req, res) => {
   const sqlText = "SELECT * FROM reviews";
   const { rows } = await query(sqlText);
   res.send(rows);
 });
 
+// gets reviews for individual product
 router.get("/product/:id", async (req, res) => {
   const id = req.params.id;
   if (!id) throw new Error("ID not present");
@@ -19,6 +22,8 @@ router.get("/product/:id", async (req, res) => {
   res.send(rows);
 });
 
+// on form submit, we validate again (client + server side validation to be extra careful)
+// if validation passes, we insert form data to reviews table and retrieve all reviews to send back to front end
 router.post("/product/:id", async (req, res) => {
   const id = req.params.id;
   if (!id) throw new Error("ID not present");

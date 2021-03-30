@@ -1,3 +1,5 @@
+// displays all products in a grid format. displayed on home page
+
 import {
   makeStyles,
   Grid,
@@ -27,6 +29,8 @@ const Products = ({ products }) => {
   const history = useHistory();
 
   const handleClick = ({ id }) => {
+    // if i click on a product, i change page via pushing the product id to history
+    // which takes me to the individual product page
     history.push(`product/${id}`);
   };
 

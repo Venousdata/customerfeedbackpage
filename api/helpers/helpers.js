@@ -1,5 +1,6 @@
 import { emailRegex } from "./helper.utils.js";
 
+// same as front-end. this just validates the form again, incase something were to slip past the client side validation.
 export const validateProductReviewForm = ({ name, email, rating, comment }) => {
   const nameError =
     !name || name.length > 50

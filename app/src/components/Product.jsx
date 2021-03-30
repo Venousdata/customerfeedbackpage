@@ -1,3 +1,7 @@
+// individual product page.
+// contains product name, image, description, trend chart, all reviews for that product
+// and links to write and submit a review or return to home page.
+
 import { makeStyles, Paper, Button, CircularProgress } from "@material-ui/core";
 import { useState, useEffect } from "react";
 import { get, post } from "../api/api";
@@ -11,8 +15,8 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
   },
   image: {
-    height: "500px",
-    maxWidth: "100vh",
+    height: "400px",
+    width: "600px",
   },
   button: {
     float: "left",
@@ -23,6 +27,12 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     position: "absolute",
   },
+  paper: {
+    display: "flex",
+    alignItems: "center",
+    alignContent: "center",
+    width: "auto",
+  },
 }));
 
 const Product = () => {
@@ -32,6 +42,7 @@ const Product = () => {
   const classes = useStyles();
   const history = useHistory();
 
+  //seperate the useEffects because i don't want to make two requests when i may only need to make one.
   useEffect(() => {
     const id = window.location.pathname.split("/").pop();
     get(`product/${id}`)
@@ -47,6 +58,7 @@ const Product = () => {
   }, []);
 
   const handleClick = () => {
+    // takes us back to home page via updating history
     history.push("/");
   };
 
@@ -54,11 +66,15 @@ const Product = () => {
     setReviewModalOpen(true);
   };
 
+  // i pass the close function into the Add Review component so i can close it from within via a cancel button
+  // and update the 'open' state out here.
   const closeReviewModal = () => {
     setReviewModalOpen(false);
   };
 
   const handleSubmit = async (form) => {
+    // i pass this function into the Add Review component as that is where the form object gets created.
+    // i then use the product page pathname id to make the review post request.
     const id = window.location.pathname.split("/").pop();
     const reviews = await post(`productreviews/product/${id}`, form);
     if (reviews) {
@@ -67,7 +83,6 @@ const Product = () => {
     setReviewModalOpen(false);
   };
 
-  console.log("==========reviews==========", reviews);
   return (
     <div className={classes.product}>
       <div className={classes.buttonsContainer}>
@@ -81,14 +96,13 @@ const Product = () => {
       {product && reviews && reviews.length ? (
         <>
           <h2>{product.name}</h2>
-          <Paper variant="outlined">
+          <Paper variant="outlined" className={classes.paper}>
             <img className={classes.image} src={product.image_src} />
             <ReviewChart reviews={reviews} />
-            <p>{product.description}</p>
           </Paper>
+          <p>{product.description}</p>
           <h2>Reviews</h2>
           <DataTable reviews={reviews} />
-          {/* create review component (modal popup) */}
           <AddReview
             product={product}
             open={reviewModalOpen}

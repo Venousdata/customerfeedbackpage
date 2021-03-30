@@ -1,3 +1,5 @@
+// home page, first thing you see when app loads up
+
 import { CircularProgress, makeStyles } from "@material-ui/core";
 import { useState, useEffect } from "react";
 import { get } from "../api/api";
@@ -14,6 +16,7 @@ const Home = () => {
   const classes = useStyles();
 
   useEffect(() => {
+    //retrieve all products and pass them to the Products component to show on home page
     get("products/all")
       .then((data) => setProducts(data))
       .catch((err) => console.log(err));

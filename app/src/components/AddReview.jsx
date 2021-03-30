@@ -1,3 +1,5 @@
+// this component is just a form allowing users to write and submit reviews on products
+
 import {
   makeStyles,
   Dialog,
@@ -36,6 +38,7 @@ const AddReview = ({ product, open, handleClose, handleSubmit }) => {
       return;
     }
 
+    // if validation passes, post form object to db (reviews table)
     await handleSubmit(form);
   };
 

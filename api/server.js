@@ -2,7 +2,7 @@ import express from "express";
 import mountRoutes from "./routes/index.js";
 
 const app = express();
-// parse incoming json payloads
+// parse/deserialise incoming json payloads (e.g. add review form submission)
 app.use(express.json());
 mountRoutes(app);
 

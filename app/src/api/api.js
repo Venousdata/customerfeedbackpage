@@ -1,3 +1,7 @@
+// i keep my request functions in this folder to centralise the location i make my calls
+// it can get messy making calls in lots of different places.
+// if i wanted to, i could add any type of request function here and use it via import wherever i need it.
+
 import axios from "axios";
 import { axiosConfigGet, axiosConfigPost } from "./config";
 

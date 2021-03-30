@@ -1,3 +1,5 @@
+// set up babel to allow me to use latest js syntax e.g. ES7+
+
 {
   "env": {
     "test": {
