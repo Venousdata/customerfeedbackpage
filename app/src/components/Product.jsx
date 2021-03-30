@@ -4,6 +4,7 @@ import { get, post } from "../api/api";
 import { useHistory } from "react-router-dom";
 import DataTable from "./DataTable";
 import AddReview from "./AddReview";
+import ReviewChart from "./ReviewChart";
 
 const useStyles = makeStyles((theme) => ({
   product: {
@@ -66,6 +67,7 @@ const Product = () => {
     setReviewModalOpen(false);
   };
 
+  console.log("==========reviews==========", reviews);
   return (
     <div className={classes.product}>
       <div className={classes.buttonsContainer}>
@@ -81,6 +83,7 @@ const Product = () => {
           <h2>{product.name}</h2>
           <Paper variant="outlined">
             <img className={classes.image} src={product.image_src} />
+            <ReviewChart reviews={reviews} />
             <p>{product.description}</p>
           </Paper>
           <h2>Reviews</h2>
