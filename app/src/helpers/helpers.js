@@ -98,6 +98,10 @@ export const getReviewChartConfig = (reviews) => {
     },
     options: {
       tooltips: { enabled: false },
+      legend: {
+        // remove coloured box from legend
+        labels: { boxWidth: 0 },
+      },
       scales: {
         yAxes: [
           {
