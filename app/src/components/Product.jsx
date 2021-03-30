@@ -96,6 +96,7 @@ const Product = () => {
       {product && reviews && reviews.length ? (
         <>
           <h2>{product.name}</h2>
+          <p>{product.description}</p>
           <Paper variant="outlined" className={classes.paper}>
             <img
               className={classes.image}
@@ -104,7 +105,6 @@ const Product = () => {
             />
             <ReviewChart reviews={reviews} />
           </Paper>
-          <p>{product.description}</p>
           <h2>Reviews</h2>
           <DataTable reviews={reviews} />
           <AddReview
