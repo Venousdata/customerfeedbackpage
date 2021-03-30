@@ -65,7 +65,6 @@ const Product = () => {
           </Paper>
           <h2>Reviews</h2>
           <DataTable reviews={reviews} />
-          {/* add review button */}
           {/* create review component (modal popup) */}
         </>
       ) : (

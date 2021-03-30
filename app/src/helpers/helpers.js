@@ -1,3 +1,5 @@
+import dayjs from "dayjs";
+
 const capitalizeFirstLetter = (string) =>
   string.charAt(0).toUpperCase() + string.slice(1);
 
@@ -18,6 +20,6 @@ export const getRows = (arrayOfObjects) => {
     email: obj.email,
     rating: obj.rating,
     comment: obj.comment,
-    date: obj.date,
+    date: dayjs(obj.date).format("MMMM D, YYYY"),
   }));
 };
