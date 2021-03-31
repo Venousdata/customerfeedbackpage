@@ -29,7 +29,8 @@ export const getRows = (arrayOfObjects = []) => {
 };
 
 export const validateProductReviewForm = ({ name, email, rating, comment }) => {
-  // there's probably a library that does this validation much cleaner, but i wanted to use as little libraries as possible
+  // there's probably a library out there that does this validation in a cleaner way, 
+  // but i wanted to use as little libraries as possible
   // so i did a bare-bones validation for each of the review form properties here
   const nameError =
     !name || name.length > 50
@@ -40,7 +41,7 @@ export const validateProductReviewForm = ({ name, email, rating, comment }) => {
       ? "Email is empty, invalid, or exceeded maximum length (100)"
       : "";
   const ratingError =
-    rating > 5 || rating < 0 || isNaN(rating)
+    isNaN(rating) || rating > 5 || rating < 0
       ? "Rating is invalid. Pick a number (0-5)"
       : "";
   const commentError =

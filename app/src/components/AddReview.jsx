@@ -37,7 +37,7 @@ const AddReview = ({ product, open = false, handleClose, handleSubmit }) => {
     // if validation passes, post form object to db (reviews table)
     await handleSubmit(form);
   };
-
+  console.log(errors);
   return (
     <div>
       <Dialog open={open} onClose={handleClose}>
@@ -76,10 +76,9 @@ const AddReview = ({ product, open = false, handleClose, handleSubmit }) => {
             error={errors.rating ? true : false}
             margin="dense"
             label="Rating"
-            type="number"
-            InputProps={{ inputProps: { min: "0", max: "5" } }}
+            // this could be of type="number", but it brings it's own problems in terms of allowing characters like 'e'
+            // to be entered in to the field. my solution is to just keep it as a text field and make sure my validation checks it correctly.
             fullWidth
-            defaultValue={0}
             onChange={(e) => {
               setRating(e.target.value);
             }}
