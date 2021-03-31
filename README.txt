@@ -1,7 +1,5 @@
 Hi!
 
-Here's my submission for the customer feedback page challenge.
-
 Instructions:
 
 1. Create a postgresql db on default settings (port 5432). username should be "postgres", password should be "password". if not, update the credentials.js file (api) accordingly.
