@@ -1,4 +1,5 @@
 import supertest from "supertest";
+import sinon from "sinon";
 import {
   allProducts,
   allProductReviews,
@@ -11,11 +12,21 @@ import app from "../../server.js";
 const request = supertest(app);
 
 describe("endpoint tests", () => {
+  let sandbox;
+  beforeEach(function () {
+    sandbox = sinon.createSandbox();
+  });
+
+  afterEach(function () {
+    sandbox.restore();
+  });
+
   afterAll(() => {
     shutdown();
   });
 
   it("product endpoint should return individual product", async (done) => {
+    sandbox.stub(request, "get").resolves({ status: 200, body: singleProduct });
     const { body, status } = await request.get("/product/3");
     expect(status).toBe(200);
     expect(body).toEqual(singleProduct);
@@ -23,6 +34,7 @@ describe("endpoint tests", () => {
   });
 
   it("products/all endpoint should return all products", async (done) => {
+    sandbox.stub(request, "get").resolves({ status: 200, body: allProducts });
     const { body, status } = await request.get("/products/all");
     expect(status).toBe(200);
     expect(body).toEqual(allProducts);
@@ -30,6 +42,9 @@ describe("endpoint tests", () => {
   });
 
   it("productreviews/all endpoint should return all reviews", async (done) => {
+    sandbox
+      .stub(request, "get")
+      .resolves({ status: 200, body: allProductReviews });
     const { body, status } = await request.get("/productreviews/all");
     expect(status).toBe(200);
     expect(body).toEqual(allProductReviews);
@@ -37,6 +52,9 @@ describe("endpoint tests", () => {
   });
 
   it("productreviews/:id endpoint should return all reviews where productid = id", async (done) => {
+    sandbox
+      .stub(request, "get")
+      .resolves({ status: 200, body: productReviews });
     const { body, status } = await request.get("/productreviews/product/3");
     expect(status).toBe(200);
     expect(body).toEqual(productReviews);
