@@ -12,7 +12,7 @@ import {
 import React, { useState } from "react";
 import { validateProductReviewForm } from "../helpers/helpers";
 
-const AddReview = ({ product, open, handleClose, handleSubmit }) => {
+const AddReview = ({ product, open = false, handleClose, handleSubmit }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [rating, setRating] = useState(0);
