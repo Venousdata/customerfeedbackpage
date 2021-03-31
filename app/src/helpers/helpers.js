@@ -41,8 +41,8 @@ export const validateProductReviewForm = ({ name, email, rating, comment }) => {
       ? "Email is empty, invalid, or exceeded maximum length (100)"
       : "";
   const ratingError =
-    isNaN(rating) || rating > 5 || rating < 0
-      ? "Rating is invalid. Pick a number (0-5)"
+    isNaN(rating) || rating > 5 || rating < 1
+      ? "Rating is invalid. Pick a number (1-5)"
       : "";
   const commentError =
     !comment || comment.length > 400
