@@ -37,7 +37,7 @@ const AddReview = ({ product, open = false, handleClose, handleSubmit }) => {
     // if validation passes, post form object to db (reviews table)
     await handleSubmit(form);
   };
-  console.log(errors);
+
   return (
     <div>
       <Dialog open={open} onClose={handleClose}>
