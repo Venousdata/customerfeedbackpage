@@ -9,7 +9,7 @@ import {
   TextField,
   DialogActions,
 } from "@material-ui/core";
-import { useState } from "react";
+import React, { useState } from "react";
 import { validateProductReviewForm } from "../helpers/helpers";
 
 const AddReview = ({ product, open, handleClose, handleSubmit }) => {
@@ -41,7 +41,7 @@ const AddReview = ({ product, open, handleClose, handleSubmit }) => {
   return (
     <div>
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Add a review for {product.name}</DialogTitle>
+        <DialogTitle>Add a review for {product?.name}</DialogTitle>
         <DialogContent>
           <DialogContentText>
             Fill in the fields below to submit a review!

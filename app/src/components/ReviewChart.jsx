@@ -3,7 +3,7 @@
 
 import { makeStyles } from "@material-ui/core";
 import Chart from "chart.js";
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { getReviewChartConfig } from "../helpers/helpers";
 
 const useStyles = makeStyles((theme) => ({

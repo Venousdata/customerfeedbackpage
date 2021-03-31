@@ -1,11 +1,11 @@
 import dayjs from "dayjs";
 import { countNumOccurrences, emailRegex } from "./helper.utils";
 
-const capitalizeFirstLetter = (string) =>
+const capitalizeFirstLetter = (string = "") =>
   string.charAt(0).toUpperCase() + string.slice(1);
 
 // gets the columns for the DataTable component (Material UI DataGrid)
-export const getColumns = (arrayOfObjects, exlusions) => {
+export const getColumns = (arrayOfObjects = [{}], exlusions) => {
   // create the object column arr, but remove the properties listed in exclusions
   return Object.keys(arrayOfObjects[0])
     .map((key) => ({
@@ -17,7 +17,7 @@ export const getColumns = (arrayOfObjects, exlusions) => {
 };
 
 // gets the rows for the DataTable component (Material UI DataGrid)
-export const getRows = (arrayOfObjects) => {
+export const getRows = (arrayOfObjects = []) => {
   return arrayOfObjects.map((obj) => ({
     id: obj.id,
     name: obj.name,
@@ -56,11 +56,10 @@ export const validateProductReviewForm = ({ name, email, rating, comment }) => {
   };
 };
 
-export const getReviewChartConfig = (reviews) => {
+export const getReviewChartConfig = (reviews = []) => {
   // this function generates the chartConfig required for chart.js.
   // i've moved it here in order to keep the ReviewChart component from getting messy
   const ratings = reviews.map((review) => review.rating);
-  console.log(ratings);
   return {
     type: "bar",
     data: {

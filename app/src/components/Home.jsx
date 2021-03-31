@@ -1,7 +1,7 @@
 // home page, first thing you see when app loads up
 
 import { CircularProgress, makeStyles } from "@material-ui/core";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { get } from "../api/api";
 import Products from "./Products";
 

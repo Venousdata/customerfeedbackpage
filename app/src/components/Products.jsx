@@ -1,5 +1,6 @@
 // displays all products in a grid format. displayed on home page
 
+import React from "react";
 import {
   makeStyles,
   Grid,
@@ -24,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Products = ({ products }) => {
+const Products = ({ products = [] }) => {
   const classes = useStyles();
   const history = useHistory();
 

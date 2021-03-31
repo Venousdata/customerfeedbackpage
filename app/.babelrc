@@ -1,0 +1,13 @@
+// set up babel to allow me to use latest js syntax e.g. ES7+
+
+{
+  "env": {
+    "test": {
+      "plugins": [
+        "@babel/plugin-transform-runtime",
+        "@babel/plugin-syntax-jsx",
+        "@babel/plugin-transform-react-jsx"
+      ]
+    }
+  }
+}
