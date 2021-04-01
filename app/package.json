@@ -25,7 +25,11 @@
   "jest": {
     "transform": {
       "^.+\\.[t|j]sx?$": "babel-jest"
-    }
+    },
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/data/"
+    ]
   },
   "eslintConfig": {
     "extends": [
@@ -50,6 +54,7 @@
     "@babel/plugin-transform-react-jsx": "^7.13.12",
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
-    "@testing-library/user-event": "^12.8.3"
+    "@testing-library/user-event": "^12.8.3",
+    "sinon": "^10.0.0"
   }
 }
