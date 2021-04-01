@@ -18,10 +18,6 @@ describe("api call tests", () => {
     sandbox.restore();
   });
 
-  afterAll(() => {
-    shutdown();
-  });
-
   it("Get request should work correctly (correct params)", async (done) => {
     const aGet = sandbox.stub(axios, "get").resolves({ status: 200, data: "" });
     const data = await get("/product/3", axiosConfigGet);

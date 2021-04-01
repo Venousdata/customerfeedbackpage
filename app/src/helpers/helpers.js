@@ -1,11 +1,11 @@
 import dayjs from "dayjs";
 import { countNumOccurrences, emailRegex } from "./helper.utils";
 
-const capitalizeFirstLetter = (string = "") =>
+export const capitalizeFirstLetter = (string = "") =>
   string.charAt(0).toUpperCase() + string.slice(1);
 
 // gets the columns for the DataTable component (Material UI DataGrid)
-export const getColumns = (arrayOfObjects = [{}], exlusions) => {
+export const getColumns = (arrayOfObjects = [{}], exlusions = []) => {
   // create the object column arr, but remove the properties listed in exclusions
   return Object.keys(arrayOfObjects[0])
     .map((key) => ({
@@ -29,7 +29,7 @@ export const getRows = (arrayOfObjects = []) => {
 };
 
 export const validateProductReviewForm = ({ name, email, rating, comment }) => {
-  // there's probably a library out there that does this validation in a cleaner way, 
+  // there's probably a library out there that does this validation in a cleaner way,
   // but i wanted to use as little libraries as possible
   // so i did a bare-bones validation for each of the review form properties here
   const nameError =
