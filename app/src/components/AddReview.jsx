@@ -99,7 +99,9 @@ const AddReview = ({ product, open = false, handleClose, handleSubmit }) => {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
+          <Button data-testid="cancelbutton" onClick={handleClose}>
+            Cancel
+          </Button>
           <Button onClick={() => validateAndSubmit(form)}>Submit</Button>
         </DialogActions>
       </Dialog>
