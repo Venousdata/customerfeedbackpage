@@ -16,7 +16,7 @@ const DataTable = ({ reviews }) => {
   const classes = useStyles();
 
   return (
-    <div className={classes.tableContainer}>
+    <div data-testid="datatable" className={classes.tableContainer}>
       <DataGrid
         columns={columns}
         rows={rows}

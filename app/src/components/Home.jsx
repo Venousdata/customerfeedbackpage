@@ -23,7 +23,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className={classes.home}>
+    <div data-testid="home" className={classes.home}>
       <h2>Home</h2>
       <p>Check out some of our products!</p>
       {products ? <Products products={products} /> : <CircularProgress />}

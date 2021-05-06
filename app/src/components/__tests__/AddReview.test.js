@@ -1,11 +1,25 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import AddReview from "../AddReview";
+import {
+  mockProduct,
+  mockCloseHandler,
+  mockHandleSubmit,
+} from "./mockData/AddReview.data";
 
 describe("AddReview tests", () => {
+  // unfinished
   it("AddReview should render and match snapshot", (done) => {
-    const container = render(<AddReview />);
-    expect(container.firstChild).toMatchSnapshot();
+    render(
+      <AddReview
+        product={mockProduct}
+        open={true}
+        handleClose={mockCloseHandler}
+        handleSubmit={mockHandleSubmit}
+      />
+    );
+    const component = screen.getByTestId("addreview");
+    expect(component.innerHTML).toMatchSnapshot();
     done();
   });
 });

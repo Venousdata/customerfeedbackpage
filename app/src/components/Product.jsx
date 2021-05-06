@@ -76,7 +76,7 @@ const Product = () => {
   };
 
   return (
-    <div className={classes.product}>
+    <div data-testid="product" className={classes.product}>
       <div className={classes.buttonsContainer}>
         <Link to="/">
           <Button className={classes.button}>Home</Button>

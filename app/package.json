@@ -28,7 +28,8 @@
     },
     "testPathIgnorePatterns": [
       "/node_modules/",
-      "/data/"
+      "/data/",
+      "/mockData/"
     ]
   },
   "eslintConfig": {

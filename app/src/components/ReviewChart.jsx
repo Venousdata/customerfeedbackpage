@@ -30,7 +30,7 @@ const ReviewChart = ({ reviews }) => {
   }, [chartContainer, reviews]);
 
   return (
-    <div>
+    <div data-testid="reviewchart">
       <canvas ref={chartContainer} className={classes.canvas} />
     </div>
   );

@@ -35,6 +35,7 @@ const Products = ({ products = [] }) => {
         justify="center"
         spacing={3}
         className={classes.gridcontainer}
+        data-testid="products"
       >
         {products.map((product) => (
           <Grid key={product.id} item>

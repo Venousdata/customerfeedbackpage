@@ -39,7 +39,7 @@ const AddReview = ({ product, open = false, handleClose, handleSubmit }) => {
   };
 
   return (
-    <div>
+    <div data-testid="addreview">
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Add a review for {product?.name}</DialogTitle>
         <DialogContent>
