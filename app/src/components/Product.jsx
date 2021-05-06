@@ -2,7 +2,13 @@
 // contains product name, image, description, trend chart, all reviews for that product
 // and links to write and submit a review or return to home page.
 
-import { makeStyles, Paper, Button, CircularProgress } from "@material-ui/core";
+import {
+  makeStyles,
+  Paper,
+  Button,
+  CircularProgress,
+  Typography,
+} from "@material-ui/core";
 import React, { useState, useEffect } from "react";
 import { get, post } from "../api/api";
 import { Link, useParams } from "react-router-dom";
@@ -87,8 +93,10 @@ const Product = () => {
       </div>
       {product && reviews && reviews.length ? (
         <>
-          <h2>{product.name}</h2>
-          <p>{product.description}</p>
+          <Typography variant="h3" color="secondary">
+            {product.name}
+          </Typography>
+          <Typography variant="subtitle1">{product.description}</Typography>
           <Paper variant="outlined" className={classes.paper}>
             <img
               className={classes.image}
@@ -97,7 +105,9 @@ const Product = () => {
             />
             <ReviewChart reviews={reviews} />
           </Paper>
-          <h2>Reviews</h2>
+          <Typography variant="h4" color="secondary">
+            Reviews
+          </Typography>
           <DataTable reviews={reviews} />
           <AddReview
             product={product}

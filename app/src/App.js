@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { makeStyles, Paper } from "@material-ui/core";
+import { makeStyles, Paper, Typography } from "@material-ui/core";
 import Home from "./components/Home";
 import Product from "./components/Product";
 
@@ -26,7 +26,9 @@ const App = () => {
       <BrowserRouter>
         <div className={classes.contentwrap}>
           <Paper elevation={2} className={classes.paper}>
-            <h1>Customer Feedback Page</h1>
+            <Typography color="primary" variant="h2">
+              Customer Feedback Page
+            </Typography>
             <Switch>
               <main>
                 <Route path="/" exact component={Home} />

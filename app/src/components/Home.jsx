@@ -1,6 +1,6 @@
 // home page, first thing you see when app loads up
 
-import { CircularProgress, makeStyles } from "@material-ui/core";
+import { CircularProgress, makeStyles, Typography } from "@material-ui/core";
 import React, { useState, useEffect } from "react";
 import { get } from "../api/api";
 import Products from "./Products";
@@ -24,8 +24,12 @@ const Home = () => {
 
   return (
     <div data-testid="home" className={classes.home}>
-      <h2>Home</h2>
-      <p>Check out some of our products!</p>
+      <Typography color="secondary" variant="h3">
+        Home
+      </Typography>
+      <Typography variant="subtitle1">
+        Check out some of our products!
+      </Typography>
       {products ? <Products products={products} /> : <CircularProgress />}
     </div>
   );
