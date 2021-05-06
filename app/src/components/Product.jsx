@@ -41,6 +41,7 @@ const Product = () => {
   const [reviewModalOpen, setReviewModalOpen] = useState(false);
   const classes = useStyles();
   const { id } = useParams();
+
   //seperate the useEffects because i don't want to make two requests when i may only need to make one.
   useEffect(() => {
     get(`product/${id}`)
