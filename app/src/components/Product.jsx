@@ -5,7 +5,7 @@
 import { makeStyles, Paper, Button, CircularProgress } from "@material-ui/core";
 import React, { useState, useEffect } from "react";
 import { get, post } from "../api/api";
-import { useHistory } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import DataTable from "./DataTable";
 import AddReview from "./AddReview";
 import ReviewChart from "./ReviewChart";
@@ -40,27 +40,19 @@ const Product = () => {
   const [reviews, setReviews] = useState([]);
   const [reviewModalOpen, setReviewModalOpen] = useState(false);
   const classes = useStyles();
-  const history = useHistory();
-
+  const { id } = useParams();
   //seperate the useEffects because i don't want to make two requests when i may only need to make one.
   useEffect(() => {
-    const id = window.location.pathname.split("/").pop();
     get(`product/${id}`)
       .then((data) => setProduct(data))
       .catch((err) => console.log(err));
-  }, []);
+  }, [id]);
 
   useEffect(() => {
-    const id = window.location.pathname.split("/").pop();
     get(`productreviews/product/${id}`)
       .then((data) => setReviews(data))
       .catch((err) => console.log(err));
-  }, []);
-
-  const handleClick = () => {
-    // takes us back to home page via updating history
-    history.push("/");
-  };
+  }, [id]);
 
   const openReviewModal = () => {
     setReviewModalOpen(true);
@@ -75,7 +67,6 @@ const Product = () => {
   const handleSubmit = async (form) => {
     // i pass this function into the Add Review component as that is where the form object gets created.
     // i then use the product page pathname id to make the review post request.
-    const id = window.location.pathname.split("/").pop();
     const reviews = await post(`productreviews/product/${id}`, form);
     if (reviews) {
       setReviews(reviews);
@@ -86,9 +77,9 @@ const Product = () => {
   return (
     <div className={classes.product}>
       <div className={classes.buttonsContainer}>
-        <Button className={classes.button} onClick={() => handleClick()}>
-          Home
-        </Button>
+        <Link to="/">
+          <Button className={classes.button}>Home</Button>
+        </Link>
         <Button className={classes.button} onClick={() => openReviewModal()}>
           Add Review
         </Button>
