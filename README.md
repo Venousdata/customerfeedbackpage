@@ -5,7 +5,7 @@ Hi!
 This is an application that allows the user to view and write reviews for a small selection of products.
 Users are able to view individual products in detail, including an image, title, description, and frequency/most common ratings out of 5.
 
-There is room to scale this application to allow users to add their own products. although this is not currently implemented, i've structured the code to allow for easy addition of new functionality in future.
+There is room to scale this application to allow users to add their own products, for example. although this is not currently implemented, i've structured the code to allow for easy addition of new functionality in future.
 
 ## Code test coverage statistics:
 
