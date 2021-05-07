@@ -1,3 +1,5 @@
+# Customer Feedback Page
+
 Hi!
 
 This is an application that allows the user to view and write reviews for a small selection of products.
@@ -5,7 +7,7 @@ Users are able to view individual products in detail, including an image, title,
 
 There is room to scale this application to allow users to add their own products. although this is not currently implemented, i've structured the code to allow for easy addition of new functionality in future.
 
-Code test coverage statistics:
+## Code test coverage statistics:
 
 app: 
 -----------------------------------|---------|----------|---------|---------|----------------------
@@ -19,7 +21,7 @@ File                        | % Stmts | % Branch | % Funcs | % Lines | Uncovered
 ----------------------------|---------|----------|---------|---------|-------------------
 All files                   |   53.62 |    65.63 |   27.27 |   57.14 |
 
-Setup instructions:
+## Setup instructions:
 
 1. Create a postgresql db on default settings (port 5432). username should be "postgres", password should be "password". if not, update the credentials.js file (api) accordingly.
 2. Name the database "customerfeedbackpage" 
