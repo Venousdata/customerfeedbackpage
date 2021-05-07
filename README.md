@@ -29,3 +29,6 @@ All files                   |   53.62 |    65.63 |   27.27 |   57.14 |
 4. Run "npm install" in both the app and api directories to download all required packages.
 5. Run the api (npm run dev) and it should print to console "API listening on port 8080"
 6. Run the app (npm run start) and the app should open up in your preferred browser. Enjoy!
+
+### Note:
+I've thoroughly commented my code to help explain my train of thought during the creation of this application
